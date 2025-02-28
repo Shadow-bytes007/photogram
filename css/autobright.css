@@ -1,0 +1,20 @@
+
+/* Change the background color of the theme toggle button */
+.btn-bd-primary {
+  background-color: #3498db; /* Blue */
+  border-color: #2980b9;
+  color: white;
+}
+
+/* Change the button color on hover */
+.btn-bd-primary:hover {
+  background-color: #2980b9; /* Darker blue */
+  border-color: #1c6ea4;
+}
+
+/* Change the button color when clicked (active state) */
+.btn-bd-primary:active {
+  background-color: #1c6ea4;
+  border-color: #155a8a;
+}
+
