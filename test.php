@@ -1,55 +1,49 @@
 <pre>
 <?php
- include 'libs/load.php';
- //include_once 'libs/includes/mic.class.php';no need to load hear coz already loaded in load.php
+include 'libs/load.php';
 
- 
-     print("_SERVER \n");
-    print_r($_SERVER);
-    // print("_GET \n");
-    // print_r($_GET);
-    // print("_POST \n");
-    // print_r($_POST );
-    // print("_FILE \n");
-    // print_r($_FILES);
-    // print("_COOKIES \n");
-    // print_r($_COOKIE );S
-    // print("_PUT \n");
-// if(signup("sudhir","password","sudhir@selfmade.ninja","9999999999")){
-//     echo("SUCCESS test");
-// }else{
-//     echo("fail");
+// $cookie_name = "testscript";
+// $cookie_value = $_SERVER['REQUEST_URI'];
+// setcookie($cookie_name, $cookie_value, time() + (86400 * 30), "/");
+// print("_SERVER \n");
+// print_r($_SERVER);
+// print("_GET \n");
+// print_r($_GET);
+// print("_POST \n");
+// print_r($_POST);
+// print("_FILES \n");
+// print_r($_FILES);
+// print("_COOKIES \n");
+// print_r($_COOKIE);
+
+// if (signup("sibidharan", "password", "sibi@selfmade.ninja", "9999999999")) {
+//     echo "Success";
+// } else {
+//     echo "Fail";
 // }
-if(signup("test1","password1","test1@example.com","9898941235"))  {
-        echo "SUCCESSS "  ;
-    }
-else
-    {
-    echo "fail";
-    }
-$mic1 = new Mic('rodarious');// constructing the object.
-$mic2 = new Mic('scullcandy');// constructing the object.
-$mic3 = new Mic('hyper');
 
-$mic1->model ="RODA";
-$mic2->model ="REDGEAR";
-$mic3->model ="saas";
-$mic1->setlight("white");
-printf($mic1->light);
-echo "\n";
+$mic1 = new Mic("Roda"); //constructing the object
+$mic2 = new Mic("HyperX"); //constructing the object
 
-$mic3->setmodel("mic3genz");
-print("THE MODEL OF THE 3rd MIC IS ".$mic3->getModelProxy());
-echo "\n";
+Mic::testFunction(); //no construction, no destruction.
+testFunction();
 
-print("\n".$mic2->getbrand()); //present in function construct:
-print("\n".$mic1->getbrand());
-print("\n".$mic3->getModelProxy());
+$mic1->setLight("White");
+$mic2->setLight("Green");
 
+print(ucwords("hyper quad cast"));
+$mic1->setModel("hyper quad cast");
+print("Model of 1st mic is ".$mic1->getModelProxy());
+print("\n".$mic1->getBrand());
+print("\n".$mic2->getBrand());
+echo $mic1->getVoltage("hello", array(1,2,3,4,5), new Mic("Bose"));
+echo $mic1->setUpVoltage("hi", new Mic("cast"), [1,2,3]);
 
-$conn = Database::getconnection();
-echo "<br>";
-$conn = Database::getconnection();
+print("\n".$mic->price);
+
+print("\nValue of 10+12 is ".$mic1->add(10, 12));
+print("\nThis is mono font inside pre tag \n");
+
 
 ?>
 </pre>

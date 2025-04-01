@@ -1,44 +1,88 @@
 <?php
 
-class Mic{
+/**
+ * Access Specifiers
+ * -----------------
+ * pubic
+ * private
+ * protected
+ */
+
+class Mic
+{
     private $brand;
-    public $model;
     public $color;
-    public $price;
     public $usb_port;
-    public $light;
+    public $model;
+    private $light;
+    public $price;
+    public static $test;
 
-
-    public static function testFunction(){
-            printf("this is a static function , this can run without an object construction/initialization");
-        
-        }
-
-    public function __construct($brand){
-        printf("CONSTRUCTING OBJECT.......");
-        $this->brand = ucwords($brand);
+    public function __call($name, $arguments)
+    {
+        print("\nCalling: $name\n");
+        print_r($arguments);
+        print("\n");
+        return "Hello-return";
     }
-    public function getbrand(){
+
+    public static function testFunction()
+    {
+        printf("This is a static function, this can be run without object initialization. ");
+    }
+
+    public function __construct($brand)
+    {
+        printf("Constructing object...");
+        $this->brand = ucwords($brand);
+        Mic::testFunction();
+    }
+
+    public function setLight($light)
+    {
+        $this->light = $light;
+    }
+
+    public function getBrand()
+    {
         return $this->brand;
     }
-    public function setlight($light){
-        $this->light =$light;
+
+    public function add($a, $b)
+    {
+        return $a+$b;
     }
 
-    private function getmodel(){
+    private function getModel()
+    {
         return $this->model;
     }
-        public function getModelProxy(){
-            return $this->getmodel();
-        }
 
-    public function setmodel($model){  //to keepor convert upercase values:
-        $this->model = ucwords($model); //UC WORD IN INBUILT FUNC
+    public function setModel($model)
+    {
+        $this->model = ucwords($model);
+    }
 
+    public function getModelProxy()
+    {
+        return $this->getModel();
     }
 
     public function __destruct()
     {
-        printf("   destructing object... brand: $this->brand   <br> ");
+        printf("Destruct object: brand: $this->brand...");
     }
+}
+
+class DupMic
+{
+    public static function testFunction()
+    {
+        return "hello";
+    }
+}
+
+function testFunction()
+{
+    printf("This is a static function, this can be run without object initialization.");
 }
